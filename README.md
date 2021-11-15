@@ -1,4 +1,4 @@
-Solving the task for Epam Module 1
+Solving the task for Epam Module 5
 
 5. Basics of OOP
 Для закрепления навыков по данной теме решите следующие задачи.  
