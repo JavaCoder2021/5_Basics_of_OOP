@@ -9,8 +9,7 @@ import java.io.FileWriter;
 
 public class TextFileReader {
     
-    public File createFile(String fileName)
-    {
+    public File createFile(String fileName) {
         File newFile = new File(fileName);
         try
         {
@@ -18,15 +17,15 @@ public class TextFileReader {
             if(created)
                 System.out.println("File has been created!");
         }
-        catch(IOException ex){
+        catch(IOException ex)
+        {
              
             System.out.println(ex.getMessage());
         } 
         return newFile;
     }
     
-    public File renameFile(File myFile, String filename)
-    {
+    public File renameFile(File myFile, String filename) {
         File newFile = new File(filename);
         if (myFile.renameTo(newFile))
         {
@@ -39,8 +38,7 @@ public class TextFileReader {
         return newFile;
     }
     
-    public void appendFile(File myFile, String str)
-    {   
+    public void appendFile(File myFile, String str) {   
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(myFile, true)))
         {
             String updatedText = str.replaceAll("\n", System.lineSeparator());
@@ -53,8 +51,7 @@ public class TextFileReader {
         }   
     }
     
-    public void readFile(File myFile)
-    {      
+    public void readFile(File myFile) {      
         String lineRead;
         System.out.println("---------------------");                
         try (BufferedReader reader = new BufferedReader(new FileReader(myFile)))
@@ -75,8 +72,7 @@ public class TextFileReader {
         System.out.println("---------------------"); 
     }
 
-    public void deleteFile(File myFile)
-    {     
+    public void deleteFile(File myFile) {     
         if(myFile.delete())
         {
             System.out.println(myFile.getName() + " the file has been deleted!");
@@ -84,4 +80,5 @@ public class TextFileReader {
         else 
             System.out.println(myFile.getName() + "was not found in the folder!");
     }
+    
 }
