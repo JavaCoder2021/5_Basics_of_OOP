@@ -48,7 +48,7 @@ public class Directory {
         boolean deleted = myDir.delete();
         
         if (deleted)
-            System.out.println(myDir.getPath() + "Folder has been deleted!");    
+            System.out.println(myDir.getPath() + " Folder has been deleted!");    
         
     }
     
