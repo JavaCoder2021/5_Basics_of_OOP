@@ -4,7 +4,7 @@
 с помощью объектов которого можно сформировать покупку из нескольких товаров. 
 */
 
-package by.epam.basics_of_opp;
+package by.epam.basics_of_oop;
 
 public class Payment {
     
