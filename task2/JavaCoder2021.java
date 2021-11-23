@@ -1,6 +1,12 @@
+/*
+Задача 1.
+Создать объект класса Текстовый файл, используя классы Файл, Директория. 
+Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить. 
+*/
+
 package javacoder2021;
 
-import by.epam.basics_of_opp.*;
+import by.epam.basics_of_oop.*;
 
 public class JavaCoder2021 {
 
@@ -24,8 +30,8 @@ public class JavaCoder2021 {
         peterPayment.buyOrange();
         peterPayment.buyPear();
         peterPayment.buyPear();
-        peterPayment.getTotalSum();
-      
+        peterPayment.getTotalSum(); 
+        
     }
-    
+
 }
