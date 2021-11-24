@@ -5,11 +5,7 @@
  */
 package javacoder2021;
 
-import by.epam.basics_of_oop.task2.Payment;
 import by.epam.basics_of_oop.task2.*;
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.MonthDay;
 
 public class JavaCoder2021 {
 
