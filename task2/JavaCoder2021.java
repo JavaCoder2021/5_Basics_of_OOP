@@ -1,12 +1,15 @@
 /*
-Задача 1.
-Создать объект класса Текстовый файл, используя классы Файл, Директория. 
-Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить. 
-*/
-
+ * Задача 2.  
+ * Создать класс Payment с внутренним классом, 
+ * с помощью объектов которого можно сформировать покупку из нескольких товаров. 
+ */
 package javacoder2021;
 
-import by.epam.basics_of_oop.*;
+import by.epam.basics_of_oop.task2.Payment;
+import by.epam.basics_of_oop.task2.*;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.MonthDay;
 
 public class JavaCoder2021 {
 
@@ -30,7 +33,7 @@ public class JavaCoder2021 {
         peterPayment.buyOrange();
         peterPayment.buyPear();
         peterPayment.buyPear();
-        peterPayment.getTotalSum(); 
+        peterPayment.getTotalSum();        
         
     }
 
