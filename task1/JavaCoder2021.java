@@ -29,8 +29,8 @@ public class JavaCoder2021 {
         myFile.appendFile(textFile, str);
         myFile.readFile(textFile);
         
-        myFile.deleteFile(textFile);
-        myFile.deleteDirectory(theDir);    
+        //myFile.deleteFile(textFile);
+        //myFile.deleteDirectory(theDir);    
         
     }
 
