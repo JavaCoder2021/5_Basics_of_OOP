@@ -1,4 +1,4 @@
-package by.epam.basics_of_oop;
+package by.epam.basics_of_oop.task1;
 
 import java.io.File;
 
@@ -9,23 +9,19 @@ public class Directory {
         File theDir = new File(directory);
         boolean created = theDir.mkdirs();
 
-        if (!theDir.exists()) 
-        {
+        if (!theDir.exists()) {
             
             System.out.println("Creating directory: " + theDir.getName());
             boolean result = false;
 
-            try 
-            {
+            try {
                 theDir.mkdir();
                 result = true;
-            } 
-            catch(SecurityException se)
-            {
+            }
+            catch(SecurityException se) {
                 //handle it
-            }        
-            if(result) 
-            {    
+            }
+            if(result) {    
                 System.out.println("DIR" + directory + "created!");  
             }
         }        
