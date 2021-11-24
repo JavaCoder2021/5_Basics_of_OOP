@@ -1,4 +1,4 @@
-package by.epam.basics_of_oop;
+package by.epam.basics_of_oop.task2;
 
 public class Customer {
     
