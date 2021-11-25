@@ -17,7 +17,6 @@ public class TextFileReader {
                 System.out.println("File has been created!");
         }
         catch(IOException ex) {
-             
             System.out.println(ex.getMessage());
         } 
         return newFile;
