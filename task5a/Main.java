@@ -70,7 +70,7 @@ public class Main {
                     /** Number of flowers */                    
                     numberOfFlowers = scannerInt();   
                     /** Package */
-                    choicePackage = random.nextInt(TypesPackages);
+                    choicePackage = random.nextInt(TypesPackages) + 1;
                     switch (choicePackage)
                     {
                         case 1:
