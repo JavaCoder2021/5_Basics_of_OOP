@@ -110,8 +110,8 @@ public class Main {
         int numberOfFlowers = input.nextInt();
         if (numberOfFlowers < 1)
         {
+            System.out.println("Invalid input!");            
             numberOfFlowers = 1;
-            System.out.println("Invalid input!");
             System.out.println("Number of flowers: " + numberOfFlowers);
         }
         return numberOfFlowers;
