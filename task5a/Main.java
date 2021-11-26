@@ -15,6 +15,7 @@
  * Составляющими цветочной композиции являются цветы и упаковка. 
  */
 package by.epam.basics_of_oop.task5a;
+
 import java.util.Scanner;
 import java.util.Random;
 
