@@ -16,6 +16,7 @@
  */
 package by.epam.basics_of_oop.task5a;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  *
@@ -32,9 +33,23 @@ public class Main {
     public static void main(String[] args) {
         
         /** Variables for calculations */
-        int choice, numberOfFlowers;
+        int choice, numberOfFlowers, choiceFlower, choicePackage;
         Scanner input = new Scanner(System.in);
-        
+        Random random = new Random();
+
+        /** Flowers */
+        int TypesFlowers = 5;
+        Flower[] flower = new Flower[TypesFlowers];       
+        flower[0] = new Rose(Flower.Color.Red);
+        flower[1] = new Rose(Flower.Color.White);        
+        flower[2] = new Violet(Flower.Color.Violet);
+        flower[3] = new Tulip(Flower.Color.Red);         
+        flower[4] = new Tulip(Flower.Color.White);     
+
+        /** Packages */ 
+        int TypesPackages = 5;        
+        Bouquet.Package pack = Bouquet.Package.Crumbles;
+                
         /** Menu */         
         while (true)
         {
@@ -42,7 +57,7 @@ public class Main {
             choice = input.nextInt();
             if (choice == 0)
                 break;
-            if (choice < 0 || choice > 3) 
+            if (choice < 0 || choice > 1) 
             {
                 System.out.println("Incorrect choose!");
                 continue;
@@ -51,28 +66,39 @@ public class Main {
             switch (choice)
             {
                 case 1:
-                    numberOfFlowers = scannerInt();
-                    Flower flowerRose = new Rose(Flower.Color.Red);
-                    Bouquet bouquetRose = new Bouquet(flowerRose, Bouquet.Package.Crumbles);
-                    for(int i = 1; i <= (numberOfFlowers - 1); i++)
-                        bouquetRose.addFlower(flowerRose);    
-                    System.out.println(bouquetRose.toString());
-                    break;           
-                case 2:
-                    numberOfFlowers = scannerInt();                    
-                    Flower flowerViolet = new Violet(Flower.Color.Violet);
-                    Bouquet bouquetViolet = new Bouquet(flowerViolet, Bouquet.Package.Paper);
-                    for(int i = 1; i <= (numberOfFlowers - 1); i++)
-                        bouquetViolet.addFlower(flowerViolet);    
-                    System.out.println(bouquetViolet.toString());
-                    break;           
-                case 3:
-                    numberOfFlowers = scannerInt();                    
-                    Flower flowerTulip = new Tulip(Flower.Color.White);
-                    Bouquet bouquetTulip = new Bouquet(flowerTulip, Bouquet.Package.Net);
-                    for(int i = 1; i <= (numberOfFlowers - 1); i++)
-                        bouquetTulip.addFlower(flowerTulip);    
-                    System.out.println(bouquetTulip.toString());
+                    /** Number of flowers */                    
+                    numberOfFlowers = scannerInt();   
+                    /** Package */
+                    choicePackage = random.nextInt(TypesPackages);
+                    switch (choicePackage)
+                    {
+                        case 1:
+                            pack = Bouquet.Package.Crumbles;
+                            break;
+                        case 2:
+                            pack = Bouquet.Package.Film;
+                            break;
+                        case 3:
+                            pack = Bouquet.Package.Net;
+                            break;
+                        case 4:
+                            pack = Bouquet.Package.Organza;
+                            break;
+                        case 5:
+                            pack = Bouquet.Package.Paper;
+                            break;                            
+                    }
+                    /** Bouquet */
+                    choiceFlower = random.nextInt(TypesFlowers);                    
+                    Bouquet bouquet = new Bouquet(flower[choiceFlower], pack); 
+                    /** Add flowers */                    
+                    for(int i = 2; i <= (numberOfFlowers - 1); i++)
+                    { 
+                        choiceFlower = random.nextInt(TypesFlowers);
+                        bouquet.addFlower(flower[choiceFlower]);                                
+                    }
+                    /** Output */                      
+                    System.out.println(bouquet.toString());
                     break;
             }     
             
@@ -89,9 +115,7 @@ public class Main {
             "\n" + 
             "Выберете пункт меню:\n" +
             "0. Выйти\n" +
-            "1. Букет из роз\n" +
-            "2. Букет из фиалок\n" +
-            "3. Букет из тюльпанов\n" +                     
+            "1. Составить цветочную композицию\n" +                    
             "\n"
         );   
     }
