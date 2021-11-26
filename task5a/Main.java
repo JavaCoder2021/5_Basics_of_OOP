@@ -92,7 +92,7 @@ public class Main {
                     choiceFlower = random.nextInt(TypesFlowers);                    
                     Bouquet bouquet = new Bouquet(flower[choiceFlower], pack); 
                     /** Add flowers */                    
-                    for(int i = 2; i <= (numberOfFlowers - 1); i++)
+                    for(int i = 2; i <= numberOfFlowers; i++)
                     { 
                         choiceFlower = random.nextInt(TypesFlowers);
                         bouquet.addFlower(flower[choiceFlower]);                                
