@@ -13,11 +13,8 @@ public class Bouquet {
         Film,
         Net,
         Organza,
-        Felt,
-        Foamiran,
-        Sisal,
         Crumbles;
-    }
+    }    
     
     private Package pack; 
     private List<Flower> flowers = new ArrayList<Flower>();
