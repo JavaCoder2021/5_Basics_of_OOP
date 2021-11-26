@@ -54,7 +54,7 @@ public class Main {
                     numberOfFlowers = scannerInt();
                     Flower flowerRose = new Rose(Flower.Color.Red);
                     Bouquet bouquetRose = new Bouquet(flowerRose, Bouquet.Package.Crumbles);
-                    for(int i = 1; i <= numberOfFlowers - 1; i++)
+                    for(int i = 1; i <= (numberOfFlowers - 1); i++)
                         bouquetRose.addFlower(flowerRose);    
                     System.out.println(bouquetRose.toString());
                     break;           
@@ -62,7 +62,7 @@ public class Main {
                     numberOfFlowers = scannerInt();                    
                     Flower flowerViolet = new Violet(Flower.Color.Violet);
                     Bouquet bouquetViolet = new Bouquet(flowerViolet, Bouquet.Package.Paper);
-                    for(int i = 1; i <= numberOfFlowers - 1; i++)
+                    for(int i = 1; i <= (numberOfFlowers - 1); i++)
                         bouquetViolet.addFlower(flowerViolet);    
                     System.out.println(bouquetViolet.toString());
                     break;           
@@ -70,7 +70,7 @@ public class Main {
                     numberOfFlowers = scannerInt();                    
                     Flower flowerTulip = new Tulip(Flower.Color.White);
                     Bouquet bouquetTulip = new Bouquet(flowerTulip, Bouquet.Package.Net);
-                    for(int i = 1; i <= numberOfFlowers - 1; i++)
+                    for(int i = 1; i <= (numberOfFlowers - 1); i++)
                         bouquetTulip.addFlower(flowerTulip);    
                     System.out.println(bouquetTulip.toString());
                     break;
