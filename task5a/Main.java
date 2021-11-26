@@ -52,8 +52,6 @@ public class Main {
             {
                 case 1:
                     numberOfFlowers = scannerInt();
-                    if (numberOfFlowers < 1)
-                        numberOfFlowers = 1;
                     Flower flowerRose = new Rose(Flower.Color.Red);
                     Bouquet bouquetRose = new Bouquet(flowerRose, Bouquet.Package.Crumbles);
                     for(int i = 1; i <= numberOfFlowers - 1; i++)
@@ -61,9 +59,7 @@ public class Main {
                     System.out.println(bouquetRose.toString());
                     break;           
                 case 2:
-                    numberOfFlowers = scannerInt();
-                    if (numberOfFlowers < 1)
-                        numberOfFlowers = 1;
+                    numberOfFlowers = scannerInt();                    
                     Flower flowerViolet = new Violet(Flower.Color.Violet);
                     Bouquet bouquetViolet = new Bouquet(flowerViolet, Bouquet.Package.Paper);
                     for(int i = 1; i <= numberOfFlowers - 1; i++)
@@ -71,9 +67,7 @@ public class Main {
                     System.out.println(bouquetViolet.toString());
                     break;           
                 case 3:
-                    numberOfFlowers = scannerInt();
-                    if (numberOfFlowers < 1)
-                        numberOfFlowers = 1;
+                    numberOfFlowers = scannerInt();                    
                     Flower flowerTulip = new Tulip(Flower.Color.White);
                     Bouquet bouquetTulip = new Bouquet(flowerTulip, Bouquet.Package.Net);
                     for(int i = 1; i <= numberOfFlowers - 1; i++)
@@ -113,7 +107,14 @@ public class Main {
             System.out.println("Invalid input!");
             System.out.print("Number of flowers: ");
         }
-        return input.nextInt();
+        int numberOfFlowers = input.nextInt();
+        if (numberOfFlowers < 1)
+        {
+            numberOfFlowers = 1;
+            System.out.println("Invalid input!");
+            System.out.println("Number of flowers: " + numberOfFlowers);
+        }
+        return numberOfFlowers;
     }
     
 }
