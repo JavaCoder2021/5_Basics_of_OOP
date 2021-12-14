@@ -35,7 +35,6 @@ public class Main {
         
         /** Variables for calculations */
         int choice, numberOfFlowers, choiceFlower, choicePackage;
-        Scanner input = new Scanner(System.in);
         Random random = new Random();
 
         /** Flowers */
@@ -52,27 +51,23 @@ public class Main {
         Bouquet.Package pack = Bouquet.Package.Crumbles;
                 
         /** Menu */         
-        while (true)
-        {
+        while (true) {
             menuText();
-            choice = input.nextInt();
-            if (choice == 0)
+            choice = scannerInt("");
+            if (choice == 1)
                 break;
-            if (choice < 0 || choice > 1) 
-            {
+            if (choice < 1 || choice > 2) {
                 System.out.println("Incorrect choose!");
                 continue;
             }
                       
-            switch (choice)
-            {
-                case 1:
+            switch (choice) {
+                case 2:
                     /** Number of flowers */                    
-                    numberOfFlowers = scannerInt();   
+                    numberOfFlowers = scannerInt("Number of flowers: ");   
                     /** Package */
                     choicePackage = random.nextInt(TypesPackages) + 1;
-                    switch (choicePackage)
-                    {
+                    switch (choicePackage) {
                         case 1:
                             pack = Bouquet.Package.Crumbles;
                             break;
@@ -93,8 +88,7 @@ public class Main {
                     choiceFlower = random.nextInt(TypesFlowers);                    
                     Bouquet bouquet = new Bouquet(flower[choiceFlower], pack); 
                     /** Add flowers */                    
-                    for(int i = 2; i <= numberOfFlowers; i++)
-                    { 
+                    for(int i = 2; i <= numberOfFlowers; i++) { 
                         choiceFlower = random.nextInt(TypesFlowers);
                         bouquet.addFlower(flower[choiceFlower]);                                
                     }
@@ -114,32 +108,29 @@ public class Main {
     private static void menuText() { 
         System.out.print(
             "\n" + 
-            "Выберете пункт меню:\n" +
-            "0. Выйти\n" +
-            "1. Составить цветочную композицию\n" +                    
+            "Select the menu item:\n" +
+            "1. Exit\n" +
+            "2. Make a flower arrangement\n" +                    
             "\n"
         );   
     }
     
     /**
      * Scanner value Integer
-     */     
-    private static int scannerInt(){
+     */
+    private static int scannerInt(String str) {     
         Scanner input = new Scanner(System.in);
-        System.out.print("Number of flowers: ");
-        while (!input.hasNextInt()) {
-            input.next();
-            System.out.println("Invalid input!");
-            System.out.print("Number of flowers: ");
-        }
-        int numberOfFlowers = input.nextInt();
-        if (numberOfFlowers < 1)
-        {
-            System.out.println("Invalid input!");            
-            numberOfFlowers = 1;
-            System.out.println("Number of flowers: " + numberOfFlowers);
-        }
-        return numberOfFlowers;
+        int num = -1;
+        do {
+            System.out.print(str);
+            if (input.hasNextInt()) {
+                num = input.nextInt();
+            } 
+            else {
+                input.next();
+            }
+        } while (num <= 0);
+        return num;  
     }
     
 }
