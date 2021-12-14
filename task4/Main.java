@@ -45,20 +45,17 @@ public class Main {
         Dragon dragon = new Dragon();
         
         /** Menu */         
-        while (true)
-        {
+        while (true) {
             menuText();
-            choice = input.nextInt();
+            choice = scannerInt();
             if (choice == 0)
                 break;
-            if (choice < 0 || choice > 3) 
-            {
+            if (choice < 0 || choice > 3) {
                 System.out.println("Incorrect choose!");
                 continue;
             }
                       
-            switch (choice)
-            {
+            switch (choice) {
                 case 1:
                     dragon.showTreasures();
                     break;           
@@ -80,11 +77,11 @@ public class Main {
     private static void menuText() { 
         System.out.print(
             "\n" + 
-            "Выберете пункт меню:\n" +
-            "0. Выйти\n" +
-            "1. Просмотр сокровищ\n" +
-            "2. Самое дорогое сокровище\n" +
-            "3. Сокровища на заданную сумму\n" +                 
+            "Select the menu item:\n" +
+            "0. Exit\n" +
+            "1. View treasures\n" +
+            "2. Most precious treasure\n" +
+            "3. Treasures for a given amount\n" +                 
             "\n"
         );   
     }
@@ -92,15 +89,18 @@ public class Main {
     /**
      * Scanner value Integer
      */     
-    private static int scannerInt(){
+    private static int scannerInt(){   
         Scanner input = new Scanner(System.in);
-        System.out.print("Enter the number: ");
-        while (!input.hasNextInt()) {
-            input.next();
-            System.out.println("Invalid input!");
-            System.out.print("Enter the number: ");
-        }
-        return input.nextInt();
+        int num = -1;       
+        do {
+            if (input.hasNextInt()) {
+                num = input.nextInt();
+            } 
+            else {
+                input.next();
+            }
+        } while (num < 0);
+        return num;
     }
 
 }
