@@ -35,7 +35,6 @@ public class Main {
         
         /** Variables for calculations */
         int choice, numberOfSweets, choiceSweetness, choicePackage;
-        Scanner input = new Scanner(System.in);
         Random random = new Random();
 
         /** Sweets */
@@ -53,27 +52,23 @@ public class Main {
         Present.Package pack = Present.Package.Paper;
                 
         /** Menu */         
-        while (true)
-        {
+        while (true) {
             menuText();
-            choice = input.nextInt();
-            if (choice == 0)
+            choice = scannerInt("");
+            if (choice == 1)
                 break;
-            if (choice < 0 || choice > 1) 
-            {
+            if (choice < 1 || choice > 2) {
                 System.out.println("Incorrect choose!");
                 continue;
             }
                       
-            switch (choice)
-            {
-                case 1:
+            switch (choice) {
+                case 2:
                     /** Number of sweets */                    
-                    numberOfSweets = scannerInt();   
+                    numberOfSweets = scannerInt("Number of sweets: ");   
                     /** Package */
                     choicePackage = random.nextInt(TypesPackages) + 1;
-                    switch (choicePackage)
-                    {
+                    switch (choicePackage) {
                         case 1:
                             pack = Present.Package.Film;
                             break;
@@ -88,8 +83,7 @@ public class Main {
                     choiceSweetness = random.nextInt(TypesSweets);                    
                     Present present = new Present(sweetness[choiceSweetness], pack); 
                     /** Add sweets */                    
-                    for(int i = 2; i <= numberOfSweets; i++)
-                    { 
+                    for(int i = 2; i <= numberOfSweets; i++) { 
                         choiceSweetness = random.nextInt(TypesSweets);
                         present.addSweet(sweetness[choiceSweetness]);                                
                     }
@@ -109,9 +103,9 @@ public class Main {
     private static void menuText() { 
         System.out.print(
             "\n" + 
-            "Выберете пункт меню:\n" +
-            "0. Выйти\n" +
-            "1. Составить подарок\n" +                    
+            "Select the menu item:\n" +
+            "1. Exit\n" +
+            "2. Make a present\n" +                    
             "\n"
         );   
     }
@@ -119,22 +113,19 @@ public class Main {
     /**
      * Scanner value Integer
      */     
-    private static int scannerInt(){
+    private static int scannerInt(String str) { 
         Scanner input = new Scanner(System.in);
-        System.out.print("Number of sweets: ");
-        while (!input.hasNextInt()) {
-            input.next();
-            System.out.println("Invalid input!");
-            System.out.print("Number of sweets: ");
-        }
-        int numberOfSweets = input.nextInt();
-        if (numberOfSweets < 1)
-        {
-            System.out.println("Invalid input!");            
-            numberOfSweets = 1;
-            System.out.println("Number of sweets: " + numberOfSweets);
-        }
-        return numberOfSweets;
-    }    
+        int num = -1;
+        do {
+            System.out.print(str);
+            if (input.hasNextInt()) {
+                num = input.nextInt();
+            } 
+            else {
+                input.next();
+            }
+        } while (num <= 0);
+        return num;
+    }
     
 }
