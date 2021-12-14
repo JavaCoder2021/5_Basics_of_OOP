@@ -39,7 +39,6 @@ public class Main {
         
         /** Variables for calculations */
         int choice;
-        Scanner input = new Scanner(System.in);
 
         /** Dragon class object */        
         Dragon dragon = new Dragon();
