@@ -5,8 +5,8 @@ public class Payment {
     int price = 0;
     Customer customer;
     
-    Product apple = new Product(150);
-    Product pear = new Product(180);
+    Product apple  = new Product(150);
+    Product pear   = new Product(180);
     Product orange = new Product(210);
     Product lemon  = new Product(250);
     Product garnet = new Product(230);
