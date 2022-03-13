@@ -8,18 +8,18 @@ package by.epam.basics_of_oop.task2;
 import java.util.*;
 
 public class Payment {
-    
+
 	private List<Product> productList;
-    
+
 	{
 		productList = new LinkedList();
 	}
-	
-    public Payment() {
+
+	public Payment() {
 		super();
 	}
-    
-    public Payment(List<Product> products) {
+
+	public Payment(List<Product> products) {
 		super();
 		this.productList = products;
 	}
@@ -31,20 +31,20 @@ public class Payment {
 	public void setProducts(List<Product> productList) {
 		this.productList = productList;
 	}
-	
+
 	public void addProduct(Product product) {
 		productList.add(product);
 	}
 
 	public static class Product {
-        
+
 		private String name;
 		private double price;
-		
+
 		public Product() {
 			super();
 		}
-		
+
 		public Product(String name, double price) {
 			super();
 			this.name = name;
@@ -100,9 +100,9 @@ public class Payment {
 		@Override
 		public String toString() {
 			return getClass().getSimpleName() + " [name=" + name + ", price=" + price + "]";
-		}		
-        
-    }
+		}
+
+	}
 
 	@Override
 	public int hashCode() {
@@ -133,5 +133,5 @@ public class Payment {
 	public String toString() {
 		return getClass().getSimpleName() + " [productList=" + productList + "]";
 	}
-    
+
 }
