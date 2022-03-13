@@ -1,61 +1,137 @@
+/*
+ * Задача 2.  
+ * Создать класс Payment с внутренним классом, 
+ * с помощью объектов которого можно сформировать покупку из нескольких товаров. 
+ */
 package by.epam.basics_of_oop.task2;
+
+import java.util.*;
 
 public class Payment {
     
-    int price = 0;
-    Customer customer;
+	private List<Product> productList;
     
-    Product apple  = new Product(150);
-    Product pear   = new Product(180);
-    Product orange = new Product(210);
-    Product lemon  = new Product(250);
-    Product garnet = new Product(230);
+	{
+		productList = new LinkedList();
+	}
+	
+    public Payment() {
+		super();
+	}
     
-    public Payment(Customer customer) {
-        this.customer = new Customer(customer.getCustomerName());
-    }
-    
-    public void buyApple() {
-        price += apple.getPrice();
-        System.out.println(customer.getCustomerName() + " brought an apple " + apple.getPrice() + "$");
-    }
-    
-    public void buyPear() {
-        price += pear.getPrice();
-        System.out.println(customer.getCustomerName() + " brought a pear " + pear.getPrice() + "$");
-    }
-    
-    public void buyOrange() {
-        price += orange.getPrice();
-        System.out.println(customer.getCustomerName() + " brought an orange " + orange.getPrice() + "$");
-    }
-    
-    public void buyLemon() {
-        price += lemon.getPrice();
-        System.out.println(customer.getCustomerName() + " brought a lemon " + lemon.getPrice() + "$");
-    }
-    
-    public void buyGarnet() {
-        price += garnet.getPrice();
-        System.out.println(customer.getCustomerName() + " brought a garnet " + garnet.getPrice() + "$");
-    }
-    
-    public void getTotalSum() {
-        System.out.println(customer.getCustomerName() + ": total sum payment = " + price + "$");
-    }
-    
-    class Product {
+    public Payment(List<Product> products) {
+		super();
+		this.productList = products;
+	}
+
+	public List<Product> getProducts() {
+		return productList;
+	}
+
+	public void setProducts(List<Product> productList) {
+		this.productList = productList;
+	}
+	
+	public void addProduct(Product product) {
+		productList.add(product);
+	}
+
+	public static class Product {
         
-        private int price;
-        
-        public Product(int price) {
-            this.price = price;
-        }
-        
-        public int getPrice() {
-            return price;
-        }
+		private String name;
+		private double price;
+		
+		public Product() {
+			super();
+		}
+		
+		public Product(String name, double price) {
+			super();
+			this.name = name;
+			this.price = price;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public double getPrice() {
+			return price;
+		}
+
+		public void setPrice(double price) {
+			this.price = price;
+		}
+
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((name == null) ? 0 : name.hashCode());
+			long temp;
+			temp = Double.doubleToLongBits(price);
+			result = prime * result + (int) (temp ^ (temp >>> 32));
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Product other = (Product) obj;
+			if (name == null) {
+				if (other.name != null)
+					return false;
+			} else if (!name.equals(other.name))
+				return false;
+			if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+				return false;
+			return true;
+		}
+
+		@Override
+		public String toString() {
+			return getClass().getSimpleName() + " [name=" + name + ", price=" + price + "]";
+		}		
         
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((productList == null) ? 0 : productList.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Payment other = (Payment) obj;
+		if (productList == null) {
+			if (other.productList != null)
+				return false;
+		} else if (!productList.equals(other.productList))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + " [productList=" + productList + "]";
+	}
     
 }
