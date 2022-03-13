@@ -9,7 +9,7 @@ public class Main {
 		payment.addProduct(new Payment.Product("Orange", 500.0));
 		payment.addProduct(new Payment.Product("Bananas", 700.0));
 		
-		PaymentShow.allProducts(payment.getProducts());
+		PaymentView.allProducts(payment.getProducts());
 		
 		System.out.println("Sum=" + PaymentLogic.getSum(payment.getProducts()));
 
