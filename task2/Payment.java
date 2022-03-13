@@ -35,7 +35,11 @@ public class Payment {
 	public void addProduct(Product product) {
 		productList.add(product);
 	}
-
+	
+	public void removeProduct(Product product) {
+		productList.remove(product);
+	}
+	
 	public static class Product {
 
 		private String name;
