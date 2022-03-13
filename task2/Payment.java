@@ -19,9 +19,9 @@ public class Payment {
 		super();
 	}
 
-	public Payment(List<Product> products) {
+	public Payment(List<Product> productList) {
 		super();
-		this.productList = products;
+		this.productList = productList;
 	}
 
 	public List<Product> getProducts() {
