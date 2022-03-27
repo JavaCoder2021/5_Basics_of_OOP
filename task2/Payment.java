@@ -12,7 +12,7 @@ public class Payment {
 	private List<Product> productList;
 
 	{
-		productList = new LinkedList();
+		productList = new LinkedList<Product>();
 	}
 
 	public Payment() {
