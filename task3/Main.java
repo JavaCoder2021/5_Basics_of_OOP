@@ -11,17 +11,17 @@ import java.time.*;
 public class Main {
 
 	public static void main(String[] args) {
-		
-        Calendar calendar = new Calendar();
 
-        calendar.addHoliday(MonthDay.of(Month.JANUARY, 1));
-        calendar.addHoliday(MonthDay.of(Month.MARCH, 8));
-        calendar.addHoliday(MonthDay.of(Month.MAY, 1));
-        calendar.addHoliday(MonthDay.of(Month.MAY, 9));
-        calendar.addHoliday(MonthDay.of(Month.NOVEMBER, 7));
+		Calendar calendar = new Calendar();
 
-        calendar.showWeekendAndHolidayBetween(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 6, 1));
-        
+		calendar.addHoliday(MonthDay.of(Month.JANUARY, 1));
+		calendar.addHoliday(MonthDay.of(Month.MARCH, 8));
+		calendar.addHoliday(MonthDay.of(Month.MAY, 1));
+		calendar.addHoliday(MonthDay.of(Month.MAY, 9));
+		calendar.addHoliday(MonthDay.of(Month.NOVEMBER, 7));
+
+		calendar.showWeekendAndHolidayBetween(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 6, 1));
+
 	}
 
 }
