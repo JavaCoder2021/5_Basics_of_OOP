@@ -3,8 +3,7 @@ package by.epam.basics_of_oop.task3;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.MonthDay;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Calendar {
     
