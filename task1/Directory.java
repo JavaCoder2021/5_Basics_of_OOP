@@ -7,7 +7,7 @@ public class Directory implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private String name;
-    private List<TextFile> files = new ArrayList<TextFile>();
+    	private List<TextFile> files = new ArrayList<TextFile>();
     
 	public Directory() {
 		super();
