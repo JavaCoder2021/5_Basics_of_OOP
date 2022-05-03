@@ -1,14 +1,12 @@
 package by.epam.basics_of_oop.task3;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.MonthDay;
+import java.time.*;
 import java.util.*;
 
 public class Calendar {
     
     private final Set<MonthDay> holidays = new HashSet<>();
-    CustomHolidays customHolidays;
+    private CustomHolidays customHolidays;
 
     public Calendar() {
         this.customHolidays = new CustomHolidays();
