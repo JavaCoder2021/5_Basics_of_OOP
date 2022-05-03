@@ -1,36 +1,28 @@
 /*
  * Задача 1.
  * Создать объект класса Текстовый файл, используя классы Файл, Директория. 
- * Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить. 
+ * Методы: создать, переименовать, вывести на консоль содержимое, дополнить, удалить.
  */
 package by.epam.basics_of_oop.task1;
 
-import java.io.File;
+import java.util.Arrays;
 
 public class Main {
-    
-    public static void main(String[] args) {
-        
-        String str = ""
-            + "Discover Linguapress online learning resources. \n"
-            + "All texts and worksheets are absolutely free for anyone to use. \n"
-            + "Linguapress pages can be accessed by anyone, from anywhere. \n"
-            + "";
-        
-        TextFile myFile = new TextFile();
-        
-        File theDir = myFile.createDirectory("by/epam/text/");
-        theDir = myFile.renameDirectory(theDir, "by/epam/textfile/");
-        
-        File textFile = myFile.createFile(theDir.getPath() + "/" + "TextFile.txt");
-        textFile = myFile.renameFile(textFile, theDir.getPath() + "/" + "TextFileRenamed.txt");        
-    
-        myFile.appendFile(textFile, str);
-        myFile.readFile(textFile);
-        
-        //myFile.deleteFile(textFile);
-        //myFile.deleteDirectory(theDir);    
-        
-    }
-    
+
+	public static void main(String[] args) {
+
+		Directory directory = new Directory("Text files");
+		FileView view = new FileView();
+
+		TextFile textFile1 = new TextFile("My file1", "Text of file1 here.");
+		TextFile textFile2 = new TextFile("My file2", "Text of file2 here.");
+		textFile1.addText(" Added text.");
+		textFile1.rename("Renamed file");
+
+		directory.addFiles(Arrays.asList(textFile1, textFile2));
+
+		view.printFiles(directory);
+
+	}
+
 }
