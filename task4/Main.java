@@ -7,7 +7,7 @@
  * • При кодировании должны быть использованы соглашения об оформлении кода java code convention.  
  * • Классы должны быть грамотно разложены по пакетам.  
  * • Консольное меню должно быть минимальным.  
- * • Для хранения данных можно использовать файлы. 
+ * • Для хранения данных можно использовать файлы.
  *
  * Дракон и его сокровища. 
  * Создать программу, позволяющую обрабатывать сведения о 100 сокровищах в пещере дракона.  
@@ -18,88 +18,76 @@
  */
 package by.epam.basics_of_oop.task4;
 
-import by.epam.basics_of_oop.task4.dragon.*;
 import java.util.Scanner;
+import by.epam.basics_of_oop.task4.bean.Dragon;
 
-/**
- * Main class
- *
- * @version   1.0 25 11 2021
- * @author    Igor
- */
 public class Main {
-    
-    /**
-     * main class
-     *
-     * @version   1.0 25 11 2021
-     * @author    Igor
-     */
-    public static void main(String[] args) {
-        
-        /** Variables for calculations */
-        int choice;
 
-        /** Dragon class object */        
-        Dragon dragon = new Dragon();
-        
-        /** Menu */         
-        while (true) {
-            menuText();
-            choice = scannerInt();
-            if (choice == 0)
-                break;
-            if (choice < 0 || choice > 3) {
-                System.out.println("Incorrect choose!");
-                continue;
-            }
-                      
-            switch (choice) {
-                case 1:
-                    dragon.showTreasures();
-                    break;           
-                case 2:
-                    dragon.showMaxTreasure();
-                    break;           
-                case 3:
-                    dragon.treasuresOnSum(scannerInt());
-                    break;
-            }     
-            
-        }        
-        
-    }
+	public static void main(String[] args) {
 
-    /**
-     * Text of menu
-     */    
-    private static void menuText() { 
+	      	int choice;
+      
+	        Dragon dragon = new Dragon();
+	        DragonLogic dragonLogic = new DragonLogic(dragon);
+	        DragonView dragonView = new DragonView(dragon);
+	        
+	        dragonLogic.addTreasures();
+	        
+	        while (true) {
+	            menuText();
+	            choice = getIntFromConsol("");
+
+	            if (choice < 0 || choice > 3) {
+	                System.out.println("Incorrect choose!");
+	                continue;
+	            }
+	             
+	            if (choice == 0)
+	                break;
+	            switch (choice) {
+	                case 1:
+	                	dragonView.showAllTreasures();
+	                    break;           
+	                case 2:
+	                	dragonView.showMaxTreasure();
+	                    break;           
+	                case 3:
+	                	dragonView.treasuresOnSum(getIntFromConsol("Sum: "));
+	                    break;
+	            }     
+	            
+	        }        
+
+	}
+	
+	public static void menuText() { 
         System.out.print(
-            "\n" + 
-            "Select the menu item:\n" +
-            "0. Exit\n" +
-            "1. View treasures\n" +
-            "2. Most precious treasure\n" +
-            "3. Treasures for a given amount\n" +                 
-            "\n"
-        );   
-    }
-    
-    /**
-     * Scanner value Integer
-     */     
-    private static int scannerInt(){   
-        Scanner input = new Scanner(System.in);
-        int num = -1;       
-        do {
-            if (input.hasNextInt()) {
-                num = input.nextInt();
-            } 
-            else {
-                input.next();
-            }
-        } while (num < 0);
-        return num;
-    }
+	            "\n" + 
+	            "Select the menu item:\n" +
+	            "0. Exit\n" +
+	            "1. View treasures\n" +
+	            "2. Most expensive treasure\n" +
+	            "3. Treasures for a given amount\n" +                 
+	            "\n"
+	    );   
+	}
+	
+	public static int getIntFromConsol(String str) {
+
+		int a;
+
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print(str);
+		while (!scanner.hasNextInt()) {
+			scanner.nextLine();
+			System.out.print(str);
+		}
+		a = scanner.nextInt();
+
+		return a;
+
+	}
 
 }
