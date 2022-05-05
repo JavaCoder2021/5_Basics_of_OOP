@@ -61,7 +61,7 @@ public class Main {
 	}
 	
 	public static void menuText() { 
-        System.out.print(
+             System.out.print(
 	            "\n" + 
 	            "Select the menu item:\n" +
 	            "0. Exit\n" +
