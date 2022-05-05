@@ -47,13 +47,13 @@ public class Main {
 	            switch (choice) {
 	                case 1:
 	                	dragonView.showAllTreasures();
-	                    break;           
+	                    	break;           
 	                case 2:
 	                	dragonView.showMaxTreasure();
-	                    break;           
+	                    	break;           
 	                case 3:
 	                	dragonView.treasuresOnSum(getIntFromConsol("Sum: "));
-	                    break;
+	                    	break;
 	            }     
 	            
 	        }        
