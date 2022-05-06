@@ -1,10 +1,12 @@
 package by.epam.basics_of_oop.task5a.bean;
 
 import by.epam.basics_of_oop.task5a.Package;
+import java.io.Serializable;
 import java.util.*;
 
-public class Bouquet {
+public class Bouquet implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Package pack;
 	private List<Flower> flowers = new ArrayList<Flower>();
 
