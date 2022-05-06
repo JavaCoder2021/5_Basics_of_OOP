@@ -1,10 +1,12 @@
 package by.epam.basics_of_oop.task5a.bean;
 
+import java.io.Serializable;
 import by.epam.basics_of_oop.task5a.Color;
 import by.epam.basics_of_oop.task5a.Type;
 
-public class Flower {
+public class Flower implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Type type;
 	private Color color;
 
