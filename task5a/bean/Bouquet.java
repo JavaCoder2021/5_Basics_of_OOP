@@ -5,47 +5,47 @@ import java.util.*;
 
 public class Bouquet {
 
-    private Package pack;
-    private List<Flower> flowers = new ArrayList<Flower>();
+	private Package pack;
+	private List<Flower> flowers = new ArrayList<Flower>();
 
-    public Bouquet() {
-        super();
-    }
+	public Bouquet() {
+		super();
+	}
 
-    public Bouquet(Package pack, List<Flower> flowers) {
-        this.pack = pack;
-        this.flowers = flowers;
-    }
+	public Bouquet(Package pack, List<Flower> flowers) {
+		this.pack = pack;
+		this.flowers = flowers;
+	}
 
-    public Package getPack() {
-        return pack;
-    }
+	public Package getPack() {
+		return pack;
+	}
 
-    public void setPack(Package pack) {
-        this.pack = pack;
-    }
+	public void setPack(Package pack) {
+		this.pack = pack;
+	}
 
-    public void addFlower(Flower flower) {
-        flowers.add(flower);
-    }
+	public void addFlower(Flower flower) {
+		flowers.add(flower);
+	}
 
-    public void removeFlower(Flower flower) {
-        flowers.remove(flower);
-    }
+	public void removeFlower(Flower flower) {
+		flowers.remove(flower);
+	}
 
-    public List<Flower> getFlowers() {
-        return flowers;
-    }
+	public List<Flower> getFlowers() {
+		return flowers;
+	}
 
-    public void addFlowers(List<Flower> flowers) {
-        this.flowers.addAll(flowers);
-    }
+	public void addFlowers(List<Flower> flowers) {
+		this.flowers.addAll(flowers);
+	}
 
-    public void removeFlowers() {
-        flowers.clear();
-    }
+	public void removeFlowers() {
+		flowers.clear();
+	}
 
-    @Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -74,13 +74,13 @@ public class Bouquet {
 	}
 
 	@Override
-    public String toString() {
-        String flowersStr = "";
-        for (Flower flower : flowers)
-            flowersStr += flower.toString() + ", ";
-        flowersStr += "\n";
-        
-        return this.getClass().getSimpleName() + "\npackage: " + pack + "\nflowers: " + flowersStr;
-    }
+	public String toString() {
+		String flowersStr = "";
+		for (Flower flower : flowers)
+			flowersStr += flower.toString() + ", ";
+		flowersStr += "\n";
+
+		return this.getClass().getSimpleName() + "\npackage: " + pack + "\nflowers: " + flowersStr;
+	}
 
 }
